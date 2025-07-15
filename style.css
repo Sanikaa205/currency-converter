@@ -1,0 +1,212 @@
+/* style.css */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #f8ffae, #43c6ac, #ffafbd, #ffc3a0);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.4s;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url('https://cdn.jsdelivr.net/gh/JulianLaval/canvas-particle-network/particles.png');
+  background-size: cover;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 1s ease forwards;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+  animation: fadeInUp 1s ease 0.4s forwards;
+  opacity: 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  background: #f7faff;
+  animation: fadeInUp 1s ease 0.6s forwards;
+  opacity: 0;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background: linear-gradient(to right, #00d2ff, #3a47d5);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  animation: fadeInUp 1s ease 0.8s forwards;
+  opacity: 0;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(58, 71, 213, 0.5);
+}
+
+.swap-btn {
+  background: #dde3f5;
+  border: 1px solid #ccc;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  animation: fadeInUp 1s ease 0.7s forwards;
+  opacity: 0;
+}
+
+.swap-btn:hover {
+  background: #c6d4f8;
+  transform: rotate(180deg);
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  min-height: 24px;
+  animation: fadeInUp 1s ease 0.9s forwards;
+  opacity: 0;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #3a47d5;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+  z-index: 3;
+}
+
+.theme-toggle:hover {
+  background: #2737b0;
+}
+
+body.dark-mode {
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: #f1f1f1;
+}
+
+body.dark-mode .container {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .logo,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #f1f1f1;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background: #1f2e3e;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-mode .swap-btn {
+  background: #1f2e3e;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+body.dark-mode button {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: #fff;
+}
+
+body.dark-mode .theme-toggle {
+  background: #ff4b2b;
+  color: #fff;
+}
+
+body.dark-mode .theme-toggle:hover {
+  background: #d6361c;
+}
